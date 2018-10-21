@@ -1,0 +1,24 @@
+ifconfig wlo1 down
+macchanger -r wlo1
+iwconfig wlo1 mode monitor
+ifconfig wlo1 up
+iwconfig wlo1
+
+airmon-ng check (interface)
+
+(now kill whatever it shows for example
+[root@localhost ~]# airmon-ng check wlo1
+
+Found 5 processes that could cause trouble.
+If airodump-ng, aireplay-ng or airtun-ng stops working after
+a short period of time, you may want to run 'airmon-ng check kill'
+
+  PID Name
+  844 avahi-daemon
+  888 avahi-daemon
+ 1033 NetworkManager
+ 1238 wpa_supplicant
+ 5794 dhclient
+
+[root@localhost ~]# kill 844 888 1033 1238 5794
+)

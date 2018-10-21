@@ -1,0 +1,8 @@
+1. Everywhere their is something written in a () i.e. bracket replace it with the actual value.
+For example
+aireplay-ng -0 (channel no.) -a (mac address of the router) -c (mac address of the client 1)  (interface name)
+replace this with
+aireplay-ng -0 7 -a 80:58:F8:D8:7C:BE -c BC:D1:1F:CC:60:B4  wlo1
+2. if the no. of users are more than 3 then just add some more else if statements
+3. This code will disconnect 1 user every second and will reconnect them after that causing a great nuisance.
+4. some prerequisite are there in prerequisite file
